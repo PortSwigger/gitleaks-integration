@@ -1,3 +1,17 @@
+## [0.7.0](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/compare/v0.6.0...v0.7.0) (2026-03-19)
+
+
+### Features
+
+* Moved settings tab to Project Settings/Extensions section ([64b5168](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/commit/64b516856a4093bf53baf665bee080c6fc12f52b))
+
+
+### Bug Fixes
+
+* add upstream TLS verification to sendRequest ([3654b8c](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/commit/3654b8cf6e50bdcfe441cae81c6d85d06dbe0f37))
+* added persistenceExecutor shutdown ([9b23dd9](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/commit/9b23dd963de4c7360e5226ff15cf5e3fa742dd0b))
+* Change JOptionPane null parent frame to suiteFrame ([a70a7aa](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/commit/a70a7aac5c0a588d2f4a38c76aff26458fe82ded))
+
 ## [0.6.0](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/compare/v0.5.0...v0.6.0) (2025-12-23)
 
 
