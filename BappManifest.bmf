@@ -1,0 +1,13 @@
+Uuid: 7e8de63b53a5469492f9f9003dd5a322
+ExtensionType: 1
+Name: Gitleaks Integration
+RepoName: gitleaks-integration
+ScreenVersion: 0.7.0
+SerialVersion: 1
+MinPlatformVersion: 29
+ProOnly: True
+Author: Arqsz
+ShortDescription: The extension integrates Gitleaks into the Burp Suite, enhancing passive scanning with safety and performance features. It supports MIME filtering, regex matching, entropy calculation, and allowlisting. It also offers rule management and secret verification.
+EntryPoint: burp-gitleaks-integration-0.7.0.jar
+BuildCommand: mvn clean package
+SupportedProducts: Pro
