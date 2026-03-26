@@ -1,44 +1,32 @@
-<p>This is an unofficial, native, high-performance Java extension for Burp Suite that integrates the functionalities of Gitleaks into your passive scanning workflow, providing streamlined secret scanning. Built by a prowess security engineer, the extension offers extensive features that make secret scanning more efficient without external dependencies on binaries or Python wrappers.</p>
+<p>
+    Gitleaks Integration brings Gitleaks-based secret detection into Burp Suite's
+    passive scanning workflow. It scans HTTP responses for hardcoded secrets such as API keys, tokens, and passwords
+    using the official Gitleaks rule set, without requiring any external binaries or processes.
+</p>
 
 <h2>Features</h2>
-
 <ul>
-<li><strong>Native Montoya API</strong>: The extension is built on the modern Burp API ensuring future-proof compatibility.</li>
-<li><strong>Community Edition support</strong>: It detects Burp Suite Community Edition and registers a manual traffic handler, ensuring the scanning of traffic even without the Pro/Enterprise-only Passive Scanner.</li>
-<li><strong>Dedicated Issues tab</strong>: The extension offers an optional, experimental, standalone tab for managing and viewing findings separately from the main Burp Dashboard.</li>
-<li><strong>Safe verification</strong>: It has integrated context menu actions to verify secrets via Burp Repeater or step-by-step guides without automatic active scanning.</li>
-<li><strong>Base64 support</strong>: It automatically detects and recursively scans Base64 encoded payloads (up to depth 2).</li>
-<li><strong>Rule management</strong>: The tool enables you to auto-fetch the latest official Gitleaks rules, load custom or company-specific .toml configs, and disable specific rules via the User Interface.</li>
-<li><strong>Context menu</strong>: You can right-click any request in Burp to Force Rescan specific items.</li>
+    <li>Uses the Aho-Corasick algorithm for keyword pre-filtering and Google's RE2J library for linear-time regex
+        matching, ensuring scans stay fast even on large minified responses</li>
+    <li>Recursively decodes and scans Base64-encoded payloads up to two levels deep</li>
+    <li>Parses the official <code class="InlineCode">gitleaks.toml</code> rule format directly; fetch the latest rules
+        from the Gitleaks repository with one click, or load a custom or company-specific config file</li>
+    <li>Safe, human-in-the-loop secret verification: send a pre-built request to Repeater, copy a <code
+            class="InlineCode">curl</code> command, or follow step-by-step instructions for complex cases such as AWS
+        credentials</li>
+    <li>Optional dedicated Issues tab for viewing and managing findings independently of the main Dashboard</li>
+    <li>Configurable redaction level controls how much of a detected secret is masked in the issue detail view</li>
 </ul>
 
 <h2>Usage</h2>
-
-<p>The extension hooks into the Burps Passive Scan engine to conduct MIME Filtering, Aho-Corasick pre-scan, RE2J regex matching, entropy calculation, and Allowlisting.</p>
-
-<pre class=pre-wrap><code class=Code>graph TD
-    A[HTTP Response] &rarr; B{MIME Filter}
-    B -- Ignored (Images/Fonts) &rarr; Z[Stop]
-    B -- Text/JSON/JS &rarr; C{Aho-Corasick Trie}
-    C -- No Keywords Found &rarr; Z
-    C -- Keywords Found &rarr; D[RE2J Regex Match]
-    D &rarr; E{Entropy Check}
-    E -- Low Entropy &rarr; Z
-    E -- High Entropy &rarr; F[Allowlist Check]
-    F -- Allowed &rarr; Z
-    F -- Flagged &rarr; G[Burp Issue]</code></pre>
-
-<p>In the process:</p>
-<ul>
-<li>MIME Filtering discards static assets (images, fonts, videos) to save cycles.</li>
-<li>Aho-Corasick pre-scan battles with the response body checking for keywords from all active rules. The scan stops if no keywords wrap.</li>
-<li>RE2J regex matching finds keywords and then runs the relevant linear-time regular expressions against the content.</li>
-<li>Entropy calculation validates high-confidence matches using Shannon entropy to reduce false positives on random strings.</li>
-<li>Allowlisting respects gitleaks:allow comments in-line and supports global allowlists defined in the toml configuration.</li>
-</ul>
-
-<p>Moreover, the extension provides a safe, human-in-the-loop workflow to confirm if a detected secret is active without causing accidental account lockouts or unauthorized scanning.</p>
-<ul>
-<li>Send to Repeater option for standard API keys, which builds a valid HTTP request and opens it in a new Repeater tab.</li>
-<li>Copy verification cURL option that copies the equivalent curl command to your clipboard for a quick test.</li>
-</ul>
+<ol>
+    <li>After loading the extension, open "Settings" and navigate to the "Gitleaks Integration" panel. Click "Update" to fetch
+        the latest rules, or specify a path to a custom <code class="InlineCode">.toml</code> configuration file.</li>
+    <li>Browse your target application. The extension passively scans each HTTP response and raises audit issues for any
+        secrets detected.</li>
+    <li>To verify a finding, right-click it in the Issues pane or the "Gitleaks Integration Issues" tab and choose to send
+        a verification request to Repeater, copy a <code class="InlineCode">curl</code> command, or view step-by-step
+        instructions.</li>
+    <li>To re-examine a specific request, right-click it anywhere in Burp and select "Force Rescan" from the context menu.
+    </li>
+</ol>

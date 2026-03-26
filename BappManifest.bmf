@@ -7,7 +7,7 @@ SerialVersion: 1
 MinPlatformVersion: 29
 ProOnly: True
 Author: Arqsz
-ShortDescription: The extension integrates Gitleaks into the Burp Suite, enhancing passive scanning with safety and performance features. It supports MIME filtering, regex matching, entropy calculation, and allowlisting. It also offers rule management and secret verification.
+ShortDescription: Integrates Gitleaks into Burp Scanner.
 EntryPoint: burp-gitleaks-integration-0.7.0.jar
 BuildCommand: mvn clean package
 SupportedProducts: Pro
