@@ -3,7 +3,7 @@ ExtensionType: 1
 Name: Gitleaks Integration
 RepoName: gitleaks-integration
 ScreenVersion: 0.7.0
-SerialVersion: 1
+SerialVersion: 2
 MinPlatformVersion: 29
 ProOnly: True
 Author: Arqsz
