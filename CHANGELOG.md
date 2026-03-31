@@ -1,3 +1,11 @@
+## [0.7.1](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/compare/v0.7.0...v0.7.1) (2026-03-31)
+
+
+### Bug Fixes
+
+* Added provided to montoya-api scope ([9262c76](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/commit/9262c76c4ce0417a108e27a29ce1c4e65960b743))
+* Fixed wrong column being copied in Copy Description ([2325718](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/commit/2325718b91370352756cef55d5fbcd7f3917b2b1))
+
 ## [0.7.0](https://github.com/TheArqsz/BurpSuite-Gitleaks-Extension/compare/v0.6.0...v0.7.0) (2026-03-19)
 
 
