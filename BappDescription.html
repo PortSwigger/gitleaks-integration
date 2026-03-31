@@ -6,15 +6,9 @@
 
 <h2>Features</h2>
 <ul>
-    <li>Uses the Aho-Corasick algorithm for keyword pre-filtering and Google's RE2J library for linear-time regex
-        matching, ensuring scans stay fast even on large minified responses</li>
+    <li>Parses the official <code class="InlineCode">gitleaks.toml</code> rule format directly</li>
+    <li>Fetch the latest rules from the Gitleaks repository with one click, or load a custom or company-specific config file</li>
     <li>Recursively decodes and scans Base64-encoded payloads up to two levels deep</li>
-    <li>Parses the official <code class="InlineCode">gitleaks.toml</code> rule format directly; fetch the latest rules
-        from the Gitleaks repository with one click, or load a custom or company-specific config file</li>
-    <li>Safe, human-in-the-loop secret verification: send a pre-built request to Repeater, copy a <code
-            class="InlineCode">curl</code> command, or follow step-by-step instructions for complex cases such as AWS
-        credentials</li>
-    <li>Optional dedicated Issues tab for viewing and managing findings independently of the main Dashboard</li>
     <li>Configurable redaction level controls how much of a detected secret is masked in the issue detail view</li>
 </ul>
 
@@ -24,9 +18,5 @@
         the latest rules, or specify a path to a custom <code class="InlineCode">.toml</code> configuration file.</li>
     <li>Browse your target application. The extension passively scans each HTTP response and raises audit issues for any
         secrets detected.</li>
-    <li>To verify a finding, right-click it in the Issues pane or the "Gitleaks Integration Issues" tab and choose to send
-        a verification request to Repeater, copy a <code class="InlineCode">curl</code> command, or view step-by-step
-        instructions.</li>
-    <li>To re-examine a specific request, right-click it anywhere in Burp and select "Force Rescan" from the context menu.
-    </li>
+    <li>To verify a finding, right-click it in the Issues table, and view step-by-step manual instructions.</li>
 </ol>
